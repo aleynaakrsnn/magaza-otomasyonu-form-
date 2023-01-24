@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="M07Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciNo" />
+          </Key>
+          <Property Name="KullaniciNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="varchar" MaxLength="50" />
+          <Property Name="Sifre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Markalar">
+          <Key>
+            <PropertyRef Name="MarkaNo" />
+          </Key>
+          <Property Name="MarkaNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkaAdi" Type="varchar" MaxLength="50" />
+          <Property Name="MarkaTuru" Type="varchar" MaxLength="50" />
+          <Property Name="MarkaKodu" Type="int" />
+        </EntityType>
+        <EntityType Name="Siparis1">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiparisTuru" Type="varchar" MaxLength="50" />
+          <Property Name="SiparisAdeti" Type="int" />
+          <Property Name="SiparisFiyati" Type="int" />
+        </EntityType>
+        <EntityType Name="Urun1">
+          <Key>
+            <PropertyRef Name="UrunNo" />
+          </Key>
+          <Property Name="UrunNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunAdi" Type="varchar" MaxLength="50" />
+          <Property Name="UrunAdeti" Type="int" />
+          <Property Name="UrunFiyati" Type="int" />
+          <Property Name="UrunKodu" Type="int" />
+        </EntityType>
+        <EntityContainer Name="M07ModelStoreContainer">
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Markalar" EntityType="Self.Markalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siparis1" EntityType="Self.Siparis1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urun1" EntityType="Self.Urun1" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="M07Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciNo" />
+          </Key>
+          <Property Name="KullaniciNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Markalar">
+          <Key>
+            <PropertyRef Name="MarkaNo" />
+          </Key>
+          <Property Name="MarkaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MarkaTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MarkaKodu" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Siparis1">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SiparisAdeti" Type="Int32" />
+          <Property Name="SiparisFiyati" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Urun1">
+          <Key>
+            <PropertyRef Name="UrunNo" />
+          </Key>
+          <Property Name="UrunNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UrunAdeti" Type="Int32" />
+          <Property Name="UrunFiyati" Type="Int32" />
+          <Property Name="UrunKodu" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="M07Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+          <EntitySet Name="Markalar" EntityType="Self.Markalar" />
+          <EntitySet Name="Siparis1" EntityType="Self.Siparis1" />
+          <EntitySet Name="Urun1" EntityType="Self.Urun1" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="M07ModelStoreContainer" CdmEntityContainer="M07Entities">
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="M07Model.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Markalar">
+            <EntityTypeMapping TypeName="M07Model.Markalar">
+              <MappingFragment StoreEntitySet="Markalar">
+                <ScalarProperty Name="MarkaNo" ColumnName="MarkaNo" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+                <ScalarProperty Name="MarkaTuru" ColumnName="MarkaTuru" />
+                <ScalarProperty Name="MarkaKodu" ColumnName="MarkaKodu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparis1">
+            <EntityTypeMapping TypeName="M07Model.Siparis1">
+              <MappingFragment StoreEntitySet="Siparis1">
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+                <ScalarProperty Name="SiparisTuru" ColumnName="SiparisTuru" />
+                <ScalarProperty Name="SiparisAdeti" ColumnName="SiparisAdeti" />
+                <ScalarProperty Name="SiparisFiyati" ColumnName="SiparisFiyati" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urun1">
+            <EntityTypeMapping TypeName="M07Model.Urun1">
+              <MappingFragment StoreEntitySet="Urun1">
+                <ScalarProperty Name="UrunNo" ColumnName="UrunNo" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="UrunAdeti" ColumnName="UrunAdeti" />
+                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
